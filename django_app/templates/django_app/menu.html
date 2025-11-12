@@ -1,0 +1,21 @@
+<ul class="menu">
+    {% for node in tree %}
+        <li>
+            {% if node.url %}
+                <a href="{{ node.url }}"
+                   class="{% if node.active %}active{% endif %}"
+                   {% if node.item.open_in_new_tab %}target="_blank"{% endif %}>
+                   {{ node.item.title }}
+                </a>
+            {% else %}
+                <span>{{ node.item.title }}</span>
+            {% endif %}
+
+            {% if node.children and node.expanded %}
+                <ul>
+                    {% include "django_app/menu.html" with tree=node.children %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
