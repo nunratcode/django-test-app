@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовое меню</title>
+    <style>
+        ul.menu { list-style: none; padding-left: 0; }
+        ul.menu li { margin: 5px 0; }
+        ul.menu li ul { margin-left: 20px; }
+        .active { font-weight: bold; color: red; }
+    </style>
+</head>
+<body>
+
+<header>
+    {% load menu_tags %}
+
+    {% draw_menu 'main_menu' %}
+</header>
+
+<main>
+    <h1>Главная страница</h1>
+    <p>Здесь будет контент сайта.</p>
+</main>
+
+</body>
+</html>
